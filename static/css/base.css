@@ -43,6 +43,10 @@ body {
     color: #ffc107;
 }
 
+.bg-black {
+    background: #dc3545!important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
