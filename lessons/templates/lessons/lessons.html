@@ -10,10 +10,44 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ lessons }}
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Lessons</h2>   
+                <hr class="w-50 mb-1"> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="lesson-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for lesson in lessons %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                {% if lesson.lesson_image %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}{{ lesson.lesson_image }}" alt="{{ lesson.lesson_name }}">
+                                </a>
+                                {% else %}
+                                <a href="">
+                                    <img class="card-img-top img-fluid a" src="{{ lesson.lesson_image_url }}" alt="{{ lesson.lesson_name }}">
+                                </a>
+                                {% endif %}
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ lesson.lesson_name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ lesson.lesson_price }}</p>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
