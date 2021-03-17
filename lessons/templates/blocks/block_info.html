@@ -15,18 +15,25 @@
         <div class="row">
             <div class="col-12 col-md-6  col-lg-4 offset-lg-2">
                 <div class="image-container my5">
-                    {% if block_lesson.block_lesson_image %}
-                        <a href="">
-                            <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ block_lesson.block_lesson_image }}" alt="{{ block_lesson.block_lesson_name }}">
-                        </a>
+                    {% if block_lesson.block_image %}
+                        
+                            <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ block_lesson.block_image }}" alt="{{ block_lesson.block_name }}">
+                       
                         {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ block_lesson.block_lesson_image_url }}" alt="{{ block_lesson.block_lesson_name }}">
-                        </a>
+                        
+                            <img class="card-img-top img-fluid" src="{{ block_lesson.block_image_url }}" alt="{{ block_lesson.block_name }}">
+                        
                     {% endif %}
                 </div>
             </div>
-            <div class="col-12 col-md-6  col-lg-4"></div>
+            <div class="col-12 col-md-6  col-lg-4">
+                <div class="intensive-info-container mb-5 mt-md-5">
+                    <p class="mb-0">{{ block_lesson.block_name }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">£{{ block_lesson.block_price }}</p>
+                    <p class="mt-3">{{ block_lesson.block_description }}</p>
+                </div>
+            </div>
         </div>    
     </div>
 {% endblock %}
+
