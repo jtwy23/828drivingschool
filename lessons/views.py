@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Lessons, Blocks, Intensive
 
 # Create your views here.
@@ -10,11 +12,23 @@ def all_lessons(request):
     lessons = Lessons.objects.all()
     blocks = Blocks.objects.all()
     intensives = Intensive.objects.all()
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "Please enter some kind of search criteria")
+                return redirect(reverse('lessons'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            lessons = lessons.filter(queries)
 
     context = {
         'lessons': lessons,
         'blocks': blocks,
         'intensives': intensives,
+        'search_term': query,
     }
 
     return render(request, 'lessons/lessons.html', context)
