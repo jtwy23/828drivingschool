@@ -57,6 +57,11 @@ body {
 	z-index: -1;
 }
 
+.image {
+    width: 200px; 
+    height: 250px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
