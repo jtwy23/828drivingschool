@@ -43,8 +43,8 @@ body {
     color: #ffc107;
 }
 
-.bg-red {
-    background: #dc3545!important;
+.bg-green {
+    background: green !important;
 }
 
 .overlay {
