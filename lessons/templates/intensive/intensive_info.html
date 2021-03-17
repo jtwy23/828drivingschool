@@ -16,13 +16,9 @@
             <div class="col-12 col-md-6  col-lg-4 offset-lg-2">
                 <div class="image-container my5">
                     {% if intensive.intensive_image %}
-                        <a href="">
                             <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ intensive.intensive_image }}" alt="{{ intensive.intensive_name }}">
-                        </a>
                         {% else %}
-                        <a href="">
                             <img class="card-img-top img-fluid" src="{{ intensive.intensive_image_url }}" alt="{{ intensive.intensive_name }}">
-                        </a>
                     {% endif %}
                 </div>
             </div>

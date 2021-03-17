@@ -16,13 +16,9 @@
             <div class="col-12 col-md-6  col-lg-4 offset-lg-2">
                 <div class="image-container my5">
                     {% if lesson.lesson_image %}
-                        <a href="">
                             <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ lesson.lesson_image }}" alt="{{ lesson.lesson_name }}">
-                        </a>
                         {% else %}
-                        <a href="">
                             <img class="card-img-top img-fluid" src="{{ lesson.lesson_image_url }}" alt="{{ lesson.lesson_name }}">
-                        </a>
                     {% endif %}
                 </div>
             </div>
