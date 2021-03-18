@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Lessons, Blocks, Intensive
+from .models import Lesson
 
 # Create your views here.
 
@@ -9,9 +9,9 @@ from .models import Lessons, Blocks, Intensive
 def all_lessons(request):
     """ A view to show all lessons """
 
-    lessons = Lessons.objects.all()
-    blocks = Blocks.objects.all()
-    intensives = Intensive.objects.all()
+    lessons = Lesson.objects.filter(lesson_type='lesson')
+    blocks = Lesson.objects.filter(lesson_type='block')
+    intensives = Lesson.objects.filter(lesson_type='intensive')
     query = None
     sort = None
     direction = None
@@ -49,13 +49,13 @@ def all_lessons(request):
         'current_sorting': current_sorting,
     }
 
-    return render(request, 'lessons/lessons.html', context)
+    return render(request, 'lessons/all_lessons.html', context)
 
 
-def lesson_info(request, pk):
+def lesson_info(request, lesson_type, pk):
     """ A view to show lesson information """
 
-    lesson = get_object_or_404(Lessons, pk=pk)
+    lesson = get_object_or_404(Lesson, pk=pk, lesson_type=lesson_type)
 
     context = {
         'lesson': lesson,
@@ -64,26 +64,15 @@ def lesson_info(request, pk):
     return render(request, 'lessons/lesson_info.html', context)
 
 
-def block_info(request, pk):
-    """ A view to show block information """
+def lessons(request, lesson_type):
+    """ A view to show lesson information """
 
-    block = get_object_or_404(Blocks, pk=pk)
-
-    context = {
-        'block_lesson': block,
-    }
-
-    return render(request, 'blocks/block_info.html', context)
-
-
-def intensive_info(request, pk):
-    """ A view to show intensive information """
-
-    intensive = get_object_or_404(Intensive, pk=pk)
+    lessons = Lesson.objects.filter(lesson_type=lesson_type)
 
     context = {
-        'intensive': intensive,
+        'lessons': lessons,
     }
 
-    return render(request, 'intensive/intensive_info.html', context)
+    return render(request, 'lessons/lessons.html', context)
+
 

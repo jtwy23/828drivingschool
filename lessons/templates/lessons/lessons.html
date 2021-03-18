@@ -25,7 +25,7 @@
                     {% for lesson in lessons %}
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
-                                <a href="{% url 'lesson_info' lesson.id %}">
+                                <a href="{% url 'lesson_info' lesson.lesson_type lesson.id %}">
                                 {% if lesson.lesson_image %}
                                     <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ lesson.lesson_image }}" alt="{{ lesson.lesson_name }}">
                                 {% else %}
@@ -39,68 +39,6 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">£{{ lesson.lesson_price }}</p>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="lesson-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for block in blocks %}
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                <a href="{% url 'block_info' block.id %}">
-                                {% if block.block_image %}
-                                    <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ block.block_image }}" alt="{{ block.block_name }}">
-                                {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ block.block_image_url }}" alt="{{ block.block_name }}">
-                                {% endif %}
-                                </a>
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ block.block_name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">£{{ block.block_price }}</p>                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="lesson-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
-                <div class="row">
-                    {% for intensive in intensives %}
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
-                                <a href="{% url 'intensive_info' intensive.id %}">
-                                {% if intensive.intensive_image %}
-                                    <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ intensive.intensive_image }}" alt="{{ intensive.intensive_name }}">
-                                {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ intensive.intensive_image_url }}" alt="{{ intensive.intensive_name }}">
-                                {% endif %}
-                                </a>
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ intensive.intensive_name }}</p>
-                                </div>
-                                <div class="card-footer bg-white pt-0 border-0 text-left">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">£{{ intensive.intensive_price }}</p>                                            
                                         </div>
                                     </div>
                                 </div>
