@@ -13,8 +13,23 @@ def all_lessons(request):
     blocks = Blocks.objects.all()
     intensives = Intensive.objects.all()
     query = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'lesson_name':
+                sortkey = 'lower_name'
+                lessons = lessons.annotate(lower_name=Lower('lesson_name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            lessons = lessons.order_by(sortkey)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -24,11 +39,14 @@ def all_lessons(request):
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             lessons = lessons.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'lessons': lessons,
         'blocks': blocks,
         'intensives': intensives,
         'search_term': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'lessons/lessons.html', context)
