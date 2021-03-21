@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'lessons',
     'our_company',
+    'learn_to_drive'
 ]
 
 MIDDLEWARE = [
