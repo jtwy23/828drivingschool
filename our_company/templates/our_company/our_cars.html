@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Our Cars</h2>
+                <hr class="w-50 mb-1"> 
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="lesson-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for lesson in lessons %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                <a href="{% url 'lesson_info' lesson.lesson_type lesson.id %}">
+                                {% if lesson.lesson_image %}
+                                    <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ lesson.lesson_image }}" alt="{{ lesson.lesson_name }}">
+                                {% else %}
+                                    <img class="card-img-top img-fluid" src="{{ lesson.lesson_image_url }}" alt="{{ lesson.lesson_name }}">
+                                {% endif %}
+                                </a>
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ lesson.lesson_name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ lesson.lesson_price }}</p>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="lesson-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for block in blocks %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                <a href="{% url 'lesson_info' block.lesson_type block.id %}">
+                                {% if block.block_image %}
+                                    <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ block.lesson_image }}" alt="{{ block.lesson_name }}">
+                                {% else %}
+                                    <img class="card-img-top img-fluid" src="{{ block.lesson_image_url }}" alt="{{ block.lesson_name }}">
+                                {% endif %}
+                                </a>
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ block.lesson_name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ block.lesson_price }}</p>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="lesson-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for intensive in intensives %}
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                <a href="{% url 'lesson_info' intensive.lesson_type intensive.id %}">
+                                {% if intensive.lesson_image %}
+                                    <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ intensive.lesson_image }}" alt="{{ intensive.lesson_name }}">
+                                {% else %}
+                                    <img class="card-img-top img-fluid" src="{{ intensive.lesson_image_url }}" alt="{{ intensive.lesson_name }}">
+                                {% endif %}
+                                </a>
+                                <div class="card-body pb-0">
+                                    <p class="mb-0">{{ intensive.lesson_name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ intensive.lesson_price }}</p>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> -->
+    </div>
+{% endblock %}
