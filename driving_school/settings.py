@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'home',
     'lessons',
     'our_company',
-    'learn_to_drive'
+    'learn_to_drive',
+    'bag',
 ]
 
 MIDDLEWARE = [
