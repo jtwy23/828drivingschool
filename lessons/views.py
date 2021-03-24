@@ -74,4 +74,3 @@ def lessons(request, lesson_type):
     }
 
     return render(request, 'lessons/lessons.html', context)
-

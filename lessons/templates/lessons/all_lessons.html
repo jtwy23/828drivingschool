@@ -57,7 +57,7 @@
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 <a href="{% url 'lesson_info' block.lesson_type block.id %}">
-                                {% if block.block_image %}
+                                {% if block.lesson_image %}
                                     <img class="card-img-top img-fluid image" src="{{ MEDIA_URL }}{{ block.lesson_image }}" alt="{{ block.lesson_name }}">
                                 {% else %}
                                     <img class="card-img-top img-fluid" src="{{ block.lesson_image_url }}" alt="{{ block.lesson_name }}">
