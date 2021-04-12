@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'our_company',
     'learn_to_drive',
     'bag',
+    'instructor'
 ]
 
 MIDDLEWARE = [
